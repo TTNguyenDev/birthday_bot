@@ -73,7 +73,7 @@ module overmind::automated_birthday_gifts {
     // Entry functions
     //
     /**
-    * Initalizes birthday gift distribtution contract
+    * Initializes birthday gift distribution contract
     * @param account - account signer executing the function
     * @param addresses - list of addresses that can claim their birthday gifts
     * @param amounts  - list of amounts for birthday gifts
@@ -113,7 +113,7 @@ module overmind::automated_birthday_gifts {
         amount: u64,
         birthday_timestamp_seconds: u64
     ) acquires DistributionStore {
-        // TODO: check that the distribtution store exists
+        // TODO: check that the distribution store exists
 
         // TODO: set new birthday gift to new `amount` and `birthday_timestamp_seconds` (birthday_gift already exists, sum `amounts` and override the `birthday_timestamp_seconds`
 
@@ -129,26 +129,26 @@ module overmind::automated_birthday_gifts {
         account: &signer,
         address: address,
     ) acquires DistributionStore {
-        // TODO: check that the distribtution store exists
+        // TODO: check that the distribution store exists
 
-        // TODO: if `birthday_gifts` exists, remove `bithday_gift` from table and transfer `amount` from resource account to initiator
+        // TODO: if `birthday_gifts` exists, remove `birthday_gift` from table and transfer `amount` from resource account to initiator
     }
 
     /**
     * Claim birthday gift from `DistributionStore.birthday_gifts`
     * @param account - account signer executing the function
-    * @param distribution_address - distribtution contract address
+    * @param distribution_address - distribution contract address
     **/
     public entry fun claim_birthday_gift(
         account: &signer,
         distribution_address: address,
     ) acquires DistributionStore {
-        // TODO: check that the distribtution store exists
+        // TODO: check that the distribution store exists
 
         // TODO: check that the `birthday_gift` exists
 
         // TODO: check that the `birthday_timestamp_seconds` has passed
 
-        // TODO: remove `bithday_gift` from table and transfer `amount` from resource account to initiator
+        // TODO: remove `birthday_gift` from table and transfer `amount` from resource account to initiator
     }
 }
