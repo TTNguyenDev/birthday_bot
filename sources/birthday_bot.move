@@ -1,4 +1,4 @@
-module overmind::automated_birthday_gifts {
+module overmind::birthday_bot {
     use aptos_std::table::Table;
     use std::signer;
     use std::error;
