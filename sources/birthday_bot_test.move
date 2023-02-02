@@ -1,28 +1,20 @@
-module overmind::automated_birthday_gifts_test {
+module overmind::birthday_bot_test {
+    #[test_only]
+    use aptos_framework::timestamp;
     #[test_only]
     use std::signer;
     #[test_only]
     use aptos_framework::account;
     #[test_only]
-    use aptos_framework::aptos_coin;
-    #[test_only]
-    use std::vector;
-    #[test_only]
     use aptos_framework::coin;
     #[test_only]
     use aptos_framework::aptos_coin::AptosCoin;
     #[test_only]
-    use aptos_framework::timestamp;
+    use aptos_framework::aptos_coin;
     #[test_only]
-    use overmind::automated_birthday_gifts_solution::{initialize_distribution};
+    use std::vector;
     #[test_only]
-    use overmind::automated_birthday_gifts_solution::assert_distribution_store_exists;
-    #[test_only]
-    use overmind::automated_birthday_gifts_solution::add_birthday_gift;
-    #[test_only]
-    use overmind::automated_birthday_gifts_solution::remove_birthday_gift;
-    #[test_only]
-    use overmind::automated_birthday_gifts_solution::claim_birthday_gift;
+    use overmind::birthday_bot::{initialize_distribution, assert_distribution_store_exists, add_birthday_gift, remove_birthday_gift, claim_birthday_gift};
 
     //
     // Test functions
@@ -77,7 +69,7 @@ module overmind::automated_birthday_gifts_test {
     }
 
     #[test(aptos_framework = @0x1, account = @0xCAFE, test_one = @0x12, test_two = @0x34)]
-    #[expected_failure(abort_code = 196608)]
+    #[expected_failure(abort_code = 196608, location = overmind::birthday_bot)]
     fun test_initialize_distribution_failure_distribution_store_already_exists(
         aptos_framework: &signer,
         account: &signer,
@@ -130,7 +122,7 @@ module overmind::automated_birthday_gifts_test {
     }
 
     #[test(aptos_framework = @0x1, account = @0xCAFE, test_one = @0x12, test_two = @0x34)]
-    #[expected_failure(abort_code = 196610)]
+    #[expected_failure(abort_code = 196610, location = overmind::birthday_bot)]
     fun test_initialize_distribution_failure_not_equal_lengths(
         aptos_framework: &signer,
         account: &signer,
