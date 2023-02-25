@@ -27,7 +27,6 @@ module overmind::birthday_bot {
     }
 
     struct DistributionStore has key {
-        owner: address,
         birthday_gifts: Table<address, BirthdayGift>,
         signer_capability: account::SignerCapability,
     }
